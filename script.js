@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  // Mostrar sub-botões ao clicar em Trabalhos
+  // Mostrar sub-botões na capa ao clicar em Trabalhos
   if (btnTrabalhos) {
     btnTrabalhos.addEventListener("click", () => {
       subBotoes.classList.toggle("hidden");
     });
   }
 
-  // Entrar no site e mostrar a aba correspondente
+  // Entrar no site e abrir a aba clicada na capa
   document.querySelectorAll(".btn-sub").forEach(btn => {
     btn.addEventListener("click", () => {
       const target = btn.getAttribute("data-target");
@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Voltar para a capa
+  // Voltar à capa
   if (btnVoltarCapa) {
     btnVoltarCapa.addEventListener("click", () => {
       if (sectionSite) sectionSite.classList.add("hidden");
@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Alternar entre abas
+  // Alternar abas no menu superior
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const target = tab.getAttribute("data-tab");
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Base de dados dos Quadros
+  // BASE DE DADOS: QUADROS
   const quadrosData = [
     { src: "quadro1.jpg", titulo: "Lar Sobre Rodas", ano: "2019", autor: "Diogo Fernandes", numero: "01", comp: "17cm", larg: "13cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma habitação com cobertura inclinada e chaminé, acompanhada por um veículo ligeiro de transporte de mercadorias. O conjunto é enquadrado por elementos decorativos laterais de traço simples. Trata-se do primeiro exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal." },
     { src: "quadro2.jpg", titulo: "A Flor que Ganha Vida", ano: "2019", autor: "Diogo Fernandes", numero: "02", comp: "15.5cm", larg: "13cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma flor com características de um ser humano. Trata-se do segundo exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal." },
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "quadro32.jpeg", titulo: "Sabor Tradicional", ano: "2026", autor: "Diogo Fernandes", numero: "32", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual de um croissant, representado com linhas suaves e detalhe simplificado das camadas características da pastelaria. Composição minimalista de caráter artesanal." }
   ];
 
-  // Base de dados dos Ímanes
+  // BASE DE DADOS: ÍMANES
   const imansData = [
     { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal. Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
     { src: "imane 2.jpeg", titulo: "KMT", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." },
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." }
   ];
 
-  // Base de dados das Coleções
+  // BASE DE DADOS: COLEÇÕES
   const colecoesData = [
     { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal. Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
     { src: "imane 2.jpeg", titulo: "KMT", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." },
@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." }
   ];
 
-  // Função genérica para renderizar qualquer galeria
+  // FUNÇÃO GENÉRICA DE RENDERIZAÇÃO DE GALERIA
   function renderGaleria(data, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -116,12 +116,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Renderização de todas as galerias
+  // RENDERIZAR AS 3 GALERIAS
   renderGaleria(quadrosData, "listaQuadros");
   renderGaleria(imansData, "listaImans");
   renderGaleria(colecoesData, "listaColecoes");
 
-  // Elementos do Modal
+  // ELEMENTOS DO MODAL
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
   const modalTitulo = document.getElementById("modalTitulo");
