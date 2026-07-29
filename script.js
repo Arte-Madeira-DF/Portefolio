@@ -78,20 +78,19 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "quadro28.jpg", titulo: "O Primeiro Vapor em Portugal", ano: "2024", autor: "Diogo Fernandes", numero: "28", comp: "46cm", larg: "21cm", esp: "1cm", desc: "Placa em madeira com gravação manual representando locomotiva a vapor em vista frontal, acompanhada de elemento textual alusivo à data de chegada a Portugal. Detalhes técnicos simplificados, com foco na estrutura e componentes principais." },
     { src: "quadro29.jpg", titulo: "Figura Animada em Madeira", ano: "2025", autor: "Diogo Fernandes", numero: "29", comp: "12cm", larg: "5.5cm", esp: "1cm", desc: "Placa em madeira com gravação manual de personagem animada, representada de forma simplificada com óculos circulares e vestuário técnico. Traço contínuo e uniforme, de caráter artesanal." },
     { src: "quadro30.jpg", titulo: "Natal em madeira", ano: "2025", autor: "Diogo Fernandes", numero: "30", comp: "14.5cm", larg: "7cm", esp: "1.5cm", desc: "Placa em madeira com gravação manual de vela decorativa com chama estilizada, assente sobre elementos vegetais. Composição de traço simples e simétrico, evidenciando execução artesanal." },
-    { src: "quadro 31.jpeg", titulo: "Memórias da Estação de Serpins", ano: "2026", autor: "Diogo Fernandes", numero: "31", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual da antiga Estação de Serpins, representando duas composições ferroviárias junto ao edifício da estação. A composição destaca os elementos arquitetónicos e ferroviários característicos do local, com traço técnico simplificado e execução artesanal." },
-    { src: "quadro32.jpeg", titulo: "Sabor Tradicional", ano: "2026", autor: "Diogo Fernandes", numero: "32", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual de um croissant, representado com linhas suaves e detalhe simplificado das camadas características da pastelaria. Composição minimalista de caráter artesanal." },
+    { src: "quadro 31.jpeg", titulo: "Memórias da Estação de Serpins", ano: "2026", autor: "Diogo Fernandes", numero: "31", comp: "25.5cm", larg: "37cm", esp: "3cm", desc: "Placa em madeira com gravação manual da antiga Estação de Serpins, representando duas composições ferroviárias junto ao edifício da estação. A composição destaca os elementos arquitetónicos e ferroviários característicos do local, com traço técnico simplificado e execução artesanal." },
+    { src: "quadro32.jpeg", titulo: "Sabor Tradicional", ano: "2026", autor: "Diogo Fernandes", numero: "32", comp: "8cm", larg: "12.5cm", esp: "1.5cm", desc: "Placa em madeira com gravação manual de um croissant, representado com linhas suaves e detalhe simplificado das camadas características da pastelaria. Composição minimalista de caráter artesanal." },
   ];
 
   const imansData = [
-    { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal.  Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
     { src: "imane 2.jpeg", titulo: "KMT", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." },
     { src: "iamn3.jpeg", titulo: "Renault", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Renault." },
     { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes",desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." },
   ];
 
   const colecoesData = [
-    { src: "colecao1.jpg", titulo: "Exemplo Coleção 1", ano: "2024", autor: "Diogo Fernandes", desc: "Descrição da coleção 1." },
-    { src: "colecao2.jpg", titulo: "Exemplo Coleção 2", ano: "2025", autor: "Diogo Fernandes", desc: "Descrição da coleção 2." },
+    { src: "imane1.jpeg", titulo: "Coleção N2", ano: "2025", autor: "Diogo Fernandes", Disponiveis: ["Góis", "Poiares", "V. N. Ceira", "..."], Forma: "imane" },
+    { src: "colecao2.jpg", titulo: "Coleção de bandas portuguesa, ano: "2026", autor: "Diogo Fernandes", bandas: ["Xutos & Pontapés", "Taxi", "UHF", "..."], Forma: "quadro"  },
   ];
 
   function renderGaleria(data, containerId) {
