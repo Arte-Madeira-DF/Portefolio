@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfólio - Pirografia do Diogo</title>
+  <title>Pirografia do Diogo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- CAPA INICIAL -->
   <section id="capa">
     <div class="capa-conteudo">
       <h1 class="titulo-capa">Pirografia do Diogo</h1>
@@ -21,55 +23,61 @@
     </div>
   </section>
 
+  <!-- SITE PRINCIPAL -->
   <section id="site" class="hidden">
-    <nav class="tabs">
+    <header class="tabs">
       <ul>
-        <li><button class="tab active" data-tab="quadros">Quadros</button></li>
+        <li><button class="tab" data-tab="quadros">Quadros</button></li>
         <li><button class="tab" data-tab="imans">Ímanes</button></li>
         <li><button class="tab" data-tab="colecoes">Coleções</button></li>
       </ul>
-    </nav>
-
-    <button id="voltarCapa" class="voltar-menu">⬅ Voltar</button>
+      <button id="voltarCapa" class="voltar-menu">⬅ Voltar ao Menu</button>
+    </header>
 
     <main>
-      <section id="quadros" class="tab-content active">
-        <h1>Quadros</h1>
-        <p class="texto">Peças de pirografia realizadas manualmente em madeira.</p>
+      <!-- ABA QUADROS -->
+      <div id="quadros" class="tab-content">
+        <h2>Galeria de Quadros</h2>
         <div id="listaQuadros" class="galeria"></div>
-      </section>
+      </div>
 
-      <section id="imans" class="tab-content">
-        <h1>Ímanes</h1>
-        <p class="texto">Pequenas peças de pirografia e ímanes personalizados.</p>
+      <!-- ABA ÍMANES -->
+      <div id="imans" class="tab-content">
+        <h2>Galeria de Ímanes</h2>
         <div id="listaImans" class="galeria"></div>
-      </section>
+      </div>
 
-      <section id="colecoes" class="tab-content">
-        <h1>Coleções</h1>
-        <p class="texto">Coleções e conjuntos temáticos de trabalhos realizados em madeira.</p>
+      <!-- ABA COLEÇÕES -->
+      <div id="colecoes" class="tab-content">
+        <h2>Galeria de Coleções</h2>
         <div id="listaColecoes" class="galeria"></div>
-      </section>
+      </div>
     </main>
+
+    <footer class="rodape">
+      <p>&copy; Pirografia do Diogo - Todos os direitos reservados</p>
+    </footer>
   </section>
 
+  <!-- MODAL DE DETALHES -->
   <div id="modal" class="modal hidden">
     <div class="modal-box">
-      <button class="close" aria-label="Fechar">&times;</button>
+      <span class="close">&times;</span>
       <div class="modal-flex">
         <div class="modal-col-img">
-          <img id="modalImg" src="" alt="">
+          <img id="modalImg" src="" alt="Imagem da peça">
         </div>
         <div class="modal-col-info">
           <h2 id="modalTitulo"></h2>
           <p><strong>Ano:</strong> <span id="modalAno"></span></p>
           <p><strong>Autor:</strong> <span id="modalAutor"></span></p>
-          <p><strong>Número:</strong> <span id="modalNumero"></span></p>
+          <p><strong>Nº Peça:</strong> <span id="modalNumero"></span></p>
           <p><strong>Comprimento:</strong> <span id="modalComp"></span></p>
           <p><strong>Largura:</strong> <span id="modalLarg"></span></p>
           <p><strong>Espessura:</strong> <span id="modalEsp"></span></p>
+          <br>
           <p><strong>Descrição:</strong></p>
-          <p id="modalDesc"></p>
+          <p id="modalDesc" class="texto"></p>
         </div>
       </div>
     </div>
