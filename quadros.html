@@ -2,24 +2,79 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <title>Quadros - Pirografia do Diogo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio - Pirografia do Diogo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Quadros</h1>
-
-  <div class="galeria">
-    <div class="item">
-      <img src="imagens/carrocha.jpg" alt="Carrocha">
-      <p>Carrocha</p>
+  <section id="capa">
+    <div class="capa-conteudo">
+      <h1 class="titulo-capa">Pirografia do Diogo</h1>
+      <div class="capa-botoes">
+        <button id="btnTrabalhos">Trabalhos</button>
+      </div>
+      <div id="subBotoes" class="hidden">
+        <button class="btn-sub" data-target="quadros">Quadros</button>
+        <button class="btn-sub" data-target="imans">Ímanes</button>
+        <button class="btn-sub" data-target="colecoes">Coleções</button>
+      </div>
     </div>
+  </section>
 
-    <div class="item">
-      <img src="imagens/amor-mae.jpg" alt="Amor de Mãe">
-      <p>Amor de Mãe</p>
+  <section id="site" class="hidden">
+    <nav class="tabs">
+      <ul>
+        <li><button class="tab active" data-tab="quadros">Quadros</button></li>
+        <li><button class="tab" data-tab="imans">Ímanes</button></li>
+        <li><button class="tab" data-tab="colecoes">Coleções</button></li>
+      </ul>
+    </nav>
+
+    <button id="voltarCapa" class="voltar-menu">⬅ Voltar</button>
+
+    <main>
+      <section id="quadros" class="tab-content active">
+        <h1>Quadros</h1>
+        <p class="texto">Peças de pirografia realizadas manualmente em madeira.</p>
+        <div id="listaQuadros" class="galeria"></div>
+      </section>
+
+      <section id="imans" class="tab-content">
+        <h1>Ímanes</h1>
+        <p class="texto">Pequenas peças de pirografia e ímanes personalizados.</p>
+        <div id="listaImans" class="galeria"></div>
+      </section>
+
+      <section id="colecoes" class="tab-content">
+        <h1>Coleções</h1>
+        <p class="texto">Coleções e conjuntos temáticos de trabalhos realizados em madeira.</p>
+        <div id="listaColecoes" class="galeria"></div>
+      </section>
+    </main>
+  </section>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-box">
+      <button class="close" aria-label="Fechar">&times;</button>
+      <div class="modal-flex">
+        <div class="modal-col-img">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <div class="modal-col-info">
+          <h2 id="modalTitulo"></h2>
+          <p><strong>Ano:</strong> <span id="modalAno"></span></p>
+          <p><strong>Autor:</strong> <span id="modalAutor"></span></p>
+          <p><strong>Número:</strong> <span id="modalNumero"></span></p>
+          <p><strong>Comprimento:</strong> <span id="modalComp"></span></p>
+          <p><strong>Largura:</strong> <span id="modalLarg"></span></p>
+          <p><strong>Espessura:</strong> <span id="modalEsp"></span></p>
+          <p><strong>Descrição:</strong></p>
+          <p id="modalDesc"></p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <a href="index.html">⬅ Voltar</a>
+  <script src="script.js"></script>
 </body>
 </html>
