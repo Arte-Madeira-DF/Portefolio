@@ -2,78 +2,24 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Galeria Arte de Pirogravura</title>
+  <title>Quadros - Pirografia do Diogo</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <h1>Quadros</h1>
 
-  <!-- CAPA INICIAL -->
-  <section id="capa" class="capa">
-    <div class="capa-content">
-      <h1>Galeria Arte de Pirogravura</h1>
-      <button id="btnTrabalhos" class="btn-main">Trabalhos</button>
-      
-      <!-- SUB-BOTÕES DA CAPA -->
-      <div id="subBotoes" class="sub-botoes hidden">
-        <button class="btn-sub" data-target="quadros">Quadros</button>
-        <button class="btn-sub" data-target="imans">Ímanes</button>
-        <button class="btn-sub" data-target="colecoes">Coleções</button>
-      </div>
+  <div class="galeria">
+    <div class="item">
+      <img src="imagens/carrocha.jpg" alt="Carrocha">
+      <p>Carrocha</p>
     </div>
-  </section>
 
-  <!-- ÁREA PRINCIPAL DO SITE -->
-  <section id="site" class="hidden">
-    <!-- MENU SUPERIOR (TABS) -->
-    <header class="tabs">
-      <ul>
-        <li><button class="tab active" data-tab="quadros">Quadros</button></li>
-        <li><button class="tab" data-tab="imans">Ímanes</button></li>
-        <li><button class="tab" data-tab="colecoes">Coleções</button></li>
-      </ul>
-      <button id="voltarCapa" class="voltar-menu">⬅ Voltar ao Menu</button>
-    </header>
-
-    <!-- CONTEÚDO DAS ABAS -->
-    <main>
-      <!-- Secção Quadros -->
-      <div id="quadros" class="tab-content active">
-        <div id="listaQuadros" class="galeria"></div>
-      </div>
-
-      <!-- Secção Ímanes -->
-      <div id="imans" class="tab-content">
-        <div id="listaImans" class="galeria"></div>
-      </div>
-
-      <!-- Secção Coleções -->
-      <div id="colecoes" class="tab-content">
-        <div id="listaColecoes" class="galeria"></div>
-      </div>
-    </main>
-  </section>
-
-  <!-- MODAL DE DETALHES -->
-  <div id="modal" class="modal hidden">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div class="modal-body">
-        <img id="modalImg" src="" alt="Imagem do trabalho">
-        <div class="modal-info">
-          <h2 id="modalTitulo"></h2>
-          <p><strong>Ano:</strong> <span id="modalAno"></span></p>
-          <p><strong>Autor:</strong> <span id="modalAutor"></span></p>
-          <p><strong>Número:</strong> <span id="modalNumero"></span></p>
-          <p><strong>Comprimento:</strong> <span id="modalComp"></span></p>
-          <p><strong>Largura:</strong> <span id="modalLarg"></span></p>
-          <p><strong>Espessura:</strong> <span id="modalEsp"></span></p>
-          <p id="modalDesc"></p>
-        </div>
-      </div>
+    <div class="item">
+      <img src="imagens/amor-mae.jpg" alt="Amor de Mãe">
+      <p>Amor de Mãe</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <a href="index.html">⬅ Voltar</a>
 </body>
 </html>
