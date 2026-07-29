@@ -48,6 +48,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Dados para a galeria
   const quadrosData = [
+    { 
+      src: "quadro1.jpg", 
+      images: ["quadro1.jpg"], // Se quiseres que a da capa também apareça dentro, tens de a colocar aqui
+      titulo: "Lar Sobre Rodas", 
+      ano: "2019", 
+      autor: "Diogo Fernandes", 
+      numero: "01", 
+      comp: "17cm", larg: "13cm", esp: "2cm", 
+      desc: "Placa em madeira com gravação manual..."
+    },
     { src: "quadro1.jpg", titulo: "Lar Sobre Rodas", ano: "2019", autor: "Diogo Fernandes", numero: "01", comp: "17cm", larg: "13cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma habitação com cobertura inclinada e chaminé, acompanhada por um veículo ligeiro de transporte de mercadorias. O conjunto é enquadrado por elementos decorativos laterais de traço simples. Trata-se do primeiro exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal."},
     { src: "quadro2.jpg", titulo: "A Flor que Ganha Vida", ano: "2019", autor: "Diogo Fernandes", numero: "02", comp: "15.5cm", larg: "13cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma flor com características de um ser humano. Trata-se do segundo exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal." },
     { src: "quadro3.jpg", titulo: "Sonhos ao Vento", ano: "2019", autor: "Diogo Fernandes", numero: "03", comp: "15.5cm", larg: "13cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática um menino a agarrar num balão que representa o seu sonho. Trata-se do terceiro exemplar produzido, evidenciando um estilo inicial, com linhas um pouco mais preciosas e caráter artesanal." },
