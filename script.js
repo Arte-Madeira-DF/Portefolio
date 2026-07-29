@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quadrosData = [
     { 
       src: "quadro1.jpg", 
-      images: ["quadro1.jpg"], // Se quiseres que a da capa também apareça dentro, tens de a colocar aqui
+      images: ["quadro.jpg"], // Se quiseres que a da capa também apareça dentro, tens de a colocar aqui
       titulo: "Lar Sobre Rodas", 
       ano: "2019", 
       autor: "Diogo Fernandes", 
@@ -104,7 +104,6 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Coleção N2", 
       ano: "2025", 
       autor: "Diogo Fernandes", 
-      isColecao: true,
       tipoPeca: "Íman",
       marcos: "Vila Nova do Ceira, Góis, Poiares, ..." 
     },
@@ -113,7 +112,6 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Coleção de Bandas Portuguesas", 
       ano: "2026", 
       autor: "Diogo Fernandes", 
-      isColecao: true,
       tipoPeca: "Quadro",
       marcos: "Xutos & Pontapés, Taxi, UHF, ..." 
     }
