@@ -88,10 +88,27 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes",desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." }
   ];
 
-  const colecoesData = [
-    { src: "imane1.jpeg", titulo: "Coleção N2", ano: "2025", autor: "Diogo Fernandes", desc: "Disponíveis: Góis, Poiares, V. N. Ceira, ... (Forma: íman)" },
-    { src: "colecao2.jpg", titulo: "Coleção de bandas portuguesas", ano: "2026", autor: "Diogo Fernandes", desc: "Bandas: Xutos & Pontapés, Taxi, UHF, ... (Forma: quadro)" }
+    const colecoesData = [
+    { 
+      src: "imane1.jpeg", 
+      titulo: "Coleção N2", 
+      ano: "2025", 
+      autor: "Diogo Fernandes", 
+      isColecao: true,
+      tipoPeca: "Íman",
+      marcos: "Vila Nova do Ceira, Góis, Poiares, ..." 
+    },
+    { 
+      src: "colecao2.jpg", 
+      titulo: "Coleção de Bandas Portuguesas", 
+      ano: "2026", 
+      autor: "Diogo Fernandes", 
+      isColecao: true,
+      tipoPeca: "Quadro",
+      marcos: "Xutos & Pontapés, Taxi, UHF, ..." 
+    }
   ];
+
 
   function renderGaleria(data, containerId) {
     const container = document.getElementById(containerId);
