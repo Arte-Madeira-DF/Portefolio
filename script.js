@@ -7,33 +7,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  // Mostrar sub-botões na capa ao clicar em Trabalhos
-  if (btnTrabalhos) {
-    btnTrabalhos.addEventListener("click", () => {
-      subBotoes.classList.toggle("hidden");
-    });
-  }
+  // Mostrar sub-botões ao clicar em Trabalhos
+  btnTrabalhos.addEventListener("click", () => {
+    subBotoes.classList.toggle("hidden");
+  });
 
-  // Entrar no site e abrir a aba clicada na capa
+  // Entrar no site e mostrar a aba correspondente
   document.querySelectorAll(".btn-sub").forEach(btn => {
     btn.addEventListener("click", () => {
       const target = btn.getAttribute("data-target");
-      if (sectionCapa) sectionCapa.classList.add("hidden");
-      if (sectionSite) sectionSite.classList.remove("hidden");
+      sectionCapa.classList.add("hidden");
+      sectionSite.classList.remove("hidden");
       showTab(target);
     });
   });
 
-  // Voltar à capa
-  if (btnVoltarCapa) {
-    btnVoltarCapa.addEventListener("click", () => {
-      if (sectionSite) sectionSite.classList.add("hidden");
-      if (sectionCapa) sectionCapa.classList.remove("hidden");
-      if (subBotoes) subBotoes.classList.add("hidden");
-    });
-  }
+  // Voltar para a capa
+  btnVoltarCapa.addEventListener("click", () => {
+    sectionSite.classList.add("hidden");
+    sectionCapa.classList.remove("hidden");
+    subBotoes.classList.add("hidden");
+  });
 
-  // Alternar abas no menu superior
+  // Alternar entre abas
   tabs.forEach(tab => {
     tab.addEventListener("click", () => {
       const target = tab.getAttribute("data-tab");
@@ -50,16 +46,16 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // BASE DE DADOS: QUADROS
+  // Dados para a galeria
   const quadrosData = [
-    { src: "quadro1.jpg", titulo: "Lar Sobre Rodas", ano: "2019", autor: "Diogo Fernandes", numero: "01", comp: "17cm", larg: "13cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma habitação com cobertura inclinada e chaminé, acompanhada por um veículo ligeiro de transporte de mercadorias. O conjunto é enquadrado por elementos decorativos laterais de traço simples. Trata-se do primeiro exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal." },
+    { src: "quadro1.jpg", titulo: "Lar Sobre Rodas", ano: "2019", autor: "Diogo Fernandes", numero: "01", comp: "17cm", larg: "13cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma habitação com cobertura inclinada e chaminé, acompanhada por um veículo ligeiro de transporte de mercadorias. O conjunto é enquadrado por elementos decorativos laterais de traço simples. Trata-se do primeiro exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal."},
     { src: "quadro2.jpg", titulo: "A Flor que Ganha Vida", ano: "2019", autor: "Diogo Fernandes", numero: "02", comp: "15.5cm", larg: "13cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma flor com características de um ser humano. Trata-se do segundo exemplar produzido, evidenciando um estilo inicial, com linhas rudimentares e caráter artesanal." },
     { src: "quadro3.jpg", titulo: "Sonhos ao Vento", ano: "2019", autor: "Diogo Fernandes", numero: "03", comp: "15.5cm", larg: "13cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática um menino a agarrar num balão que representa o seu sonho. Trata-se do terceiro exemplar produzido, evidenciando um estilo inicial, com linhas um pouco mais preciosas e caráter artesanal." },
     { src: "quadro4.jpg", titulo: "Missão em Altura", ano: "2020", autor: "Diogo Fernandes", numero: "04", comp: "13cm", larg: "19.5cm", esp: "1cm", desc: "Placa em madeira com gravação manual de um camião de trabalhos em altura, com representação técnica dos principais elementos do equipamento. Trata-se do quarto projeto produzido, evidenciando um estilo inicial, com linhas um pouco mais preciosas e caráter artesanal." },
     { src: "quadro5.jpg", titulo: "Vila Nova do Ceira Terra Fixe", ano: "2020", autor: "Diogo Fernandes", numero: "05", comp: "13cm", larg: "19.5cm", esp: "1cm", desc: "Placa em madeira com gravação manual alusiva a Vila Nova do Ceira, com composição textual e simbólica associada à localidade. Estilo simples e direto. Trata-se do quinto projeto produzido, evidenciando um estilo inicial, com linhas um pouco mais preciosas e caráter artesanal." },
     { src: "quadro6.jpg", titulo: "Força da Construção", ano: "2020", autor: "Diogo Fernandes", numero: "06", comp: "13cm", larg: "18.5cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática uma escavadora, com representação simplificada dos principais componentes mecânicos. Trata-se do sexto exemplar produzido, evidenciando um estilo inicial, com linhas um pouco mais preciosas e caráter artesanal." },
-    { src: "quadro7.jpg", titulo: "Vida no Campo", ano: "2020", autor: "Diogo Fernandes", numero: "07", comp: "13cm", larg: "20cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática um trator agrícola com reboque, representado em estilo técnico com detalhe estrutural básico." },
-    { src: "quadro8.jpg", titulo: "Igreja Matriz de Vila Nova do Ceira", ano: "2020", autor: "Diogo Fernandes", numero: "08", comp: "33.5cm", larg: "17.5cm", esp: "1.5cm", desc: "Placa em madeira com gravação manual, representando a Igreja Matriz de Vila Nova do Ceira, com representação arquitetónica simplificada e foco nos elementos estruturais principais." },
+    { src: "quadro7.jpg", titulo: "Vida no Campo", ano: "2020", autor: "Diogo Fernandes", numero: "07", comp: "13cm", larg: "20cm", esp: "1cm", desc: "Placa em madeira com gravação manual, representando de forma esquemática um trator agrícola com reboque, representado em estilo técnico com detalhe estrutural básico. " },
+    { src: "quadro8.jpg", titulo: "Igreja Matriz de Vila Nova do Ceira", ano: "2020", autor: "Diogo Fernandes", numero: "08", comp: "33.5cm", larg: "17.5cm", esp: "1.5cm", desc: "Placa em madeira com gravação manual, representando a Igreja Matriz de Vila Nova do Ceira, com representação arquitetónica simplificada e foco nos elementos estruturais principais. " },
     { src: "quadro9.jpg", titulo: "Segredos do Fundo do Mar", ano: "2020", autor: "Diogo Fernandes", numero: "09", comp: "15.5cm", larg: "25cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando do fundo oceânico, com elementos marinhos estilizados e composição fluida. Traço contínuo e simplificado." },
     { src: "quadro10.jpg", titulo: "Força e União", ano: "2021", autor: "Diogo Fernandes", numero: "10", comp: "8.5cm", larg: "24cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando um grupo de pessoas diabéticas, com representação simbólica e composição equilibrada. Execução artesanal." },
     { src: "quadr11.jpg", titulo: "Rua da Aldeia", ano: "2021", autor: "Diogo Fernandes", numero: "11", comp: "13,5cm", larg: "21,5cm", esp: "2cm", desc: "Placa em madeira com gravação manual, representando uma rua com várias habitações, representadas de forma alinhada e simplificada. Composição urbana com perspetiva linear." },
@@ -77,32 +73,27 @@ document.addEventListener("DOMContentLoaded", () => {
     { src: "quadro23.jpg", titulo: "Essência Urbana", ano: "2023", autor: "Diogo Fernandes", numero: "23", comp: "15cm", larg: "19.5cm", esp: "2cm", desc: "Placa em madeira com gravação manual de automóvel utilitário, com estrutura mais robusta e proporções equilibradas. Estilo esquemático e execução artesanal." },
     { src: "quadro24.jpg", titulo: "Potência Desportiva", ano: "2023", autor: "Diogo Fernandes", numero: "24", comp: "15cm", larg: "19.5cm", esp: "2cm", desc: "Placa em madeira com gravação manual de automóvel desportivo, com perfil baixo e linhas aerodinâmicas evidenciadas. Representação técnica simplificada com traço contínuo." },
     { src: "quadro25.jpg", titulo: "Vintage Sobre Rodas", ano: "2023", autor: "Diogo Fernandes", numero: "25", comp: "15cm", larg: "19.5cm", esp: "2cm", desc: "Placa em madeira com gravação manual de automóvel clássico, representado em vista lateral com linhas arredondadas características de modelos antigos. Detalhes simplificados e execução de caráter artesanal." },
-    { src: "quadro26.jpg", titulo: "Todo-o-Terreno Clássico", ano: "2023", autor: "Diogo Fernandes", numero: "26", comp: "15cm", larg: "19.5cm", esp: "2cm", desc: "Placa em madeira com gravação manual de veículo todo-o-terreno (tipo jipe), representado em vista lateral com detalhe estrutural básico. Inclui identificação textual do modelo. Traço de caráter artesanal." },
+    { src: "quadro26.jpg", titulo: "Todo-o-Terreno Clássico", ano: "2023", autor: "Diogo Fernandes", numero: "26", comp: "15cm", larg: "19.5cm", esp: "2cm", desc: "Placa em madeira com gravação manual de veículo todo-o-terreno (tipo jipe), representado em vista lateral with detalhe estrutural básico. Inclui identificação textual do modelo. Traço de caráter artesanal." },
     { src: "quadro27.jpg", titulo: "Caminhos de Ferro", ano: "2024", autor: "Diogo Fernandes", numero: "27", comp: "48cm", larg: "4052cm", esp: "2cm", desc: "Placa em madeira com gravação manual de via férrea em perspetiva linear, incluindo postes de catenária e vedação lateral. Composição com profundidade visual e elementos paisagísticos simplificados." },
     { src: "quadro28.jpg", titulo: "O Primeiro Vapor em Portugal", ano: "2024", autor: "Diogo Fernandes", numero: "28", comp: "46cm", larg: "21cm", esp: "1cm", desc: "Placa em madeira com gravação manual representando locomotiva a vapor em vista frontal, acompanhada de elemento textual alusivo à data de chegada a Portugal. Detalhes técnicos simplificados, com foco na estrutura e componentes principais." },
     { src: "quadro29.jpg", titulo: "Figura Animada em Madeira", ano: "2025", autor: "Diogo Fernandes", numero: "29", comp: "12cm", larg: "5.5cm", esp: "1cm", desc: "Placa em madeira com gravação manual de personagem animada, representada de forma simplificada com óculos circulares e vestuário técnico. Traço contínuo e uniforme, de caráter artesanal." },
     { src: "quadro30.jpg", titulo: "Natal em madeira", ano: "2025", autor: "Diogo Fernandes", numero: "30", comp: "14.5cm", larg: "7cm", esp: "1.5cm", desc: "Placa em madeira com gravação manual de vela decorativa com chama estilizada, assente sobre elementos vegetais. Composição de traço simples e simétrico, evidenciando execução artesanal." },
     { src: "quadro 31.jpeg", titulo: "Memórias da Estação de Serpins", ano: "2026", autor: "Diogo Fernandes", numero: "31", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual da antiga Estação de Serpins, representando duas composições ferroviárias junto ao edifício da estação. A composição destaca os elementos arquitetónicos e ferroviários característicos do local, com traço técnico simplificado e execução artesanal." },
-    { src: "quadro32.jpeg", titulo: "Sabor Tradicional", ano: "2026", autor: "Diogo Fernandes", numero: "32", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual de um croissant, representado com linhas suaves e detalhe simplificado das camadas características da pastelaria. Composição minimalista de caráter artesanal." }
+    { src: "quadro32.jpeg", titulo: "Sabor Tradicional", ano: "2026", autor: "Diogo Fernandes", numero: "32", comp: "cm", larg: "cm", esp: "cm", desc: "Placa em madeira com gravação manual de um croissant, representado com linhas suaves e detalhe simplificado das camadas características da pastelaria. Composição minimalista de caráter artesanal." },
   ];
 
-  // BASE DE DADOS: ÍMANES
   const imansData = [
-    { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal. Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
+    { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal.  Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
     { src: "imane 2.jpeg", titulo: "KMT", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." },
     { src: "iamn3.jpeg", titulo: "Renault", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Renault." },
-    { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." }
+    { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes",desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." },
   ];
 
-  // BASE DE DADOS: COLEÇÕES
   const colecoesData = [
-    { src: "imane1.jpeg", titulo: "Marcos N2", ano: "2024", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans representativos sobre a N2 ao longo de Portugal. Marcos disponíveis: Vila nova do ceira; Gois; Poiares;" },
-    { src: "imane 2.jpeg", titulo: "KMT", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." },
-    { src: "iamn3.jpeg", titulo: "Renault", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Renault." },
-    { src: "imane4.jpeg", titulo: "Dacia", ano: "2025", autor: "Diogo Fernandes", desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Dacia." }
+    { src: "colecao1.jpg", titulo: "Exemplo Coleção 1", ano: "2024", autor: "Diogo Fernandes", desc: "Descrição da coleção 1." },
+    { src: "colecao2.jpg", titulo: "Exemplo Coleção 2", ano: "2025", autor: "Diogo Fernandes", desc: "Descrição da coleção 2." },
   ];
 
-  // FUNÇÃO GENÉRICA DE RENDERIZAÇÃO DE GALERIA
   function renderGaleria(data, containerId) {
     const container = document.getElementById(containerId);
     if (!container) return;
@@ -116,12 +107,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // RENDERIZAR AS 3 GALERIAS
   renderGaleria(quadrosData, "listaQuadros");
   renderGaleria(imansData, "listaImans");
-  renderGaleria(colecoesData, "listaColecoes");
+  renderGaleria(colecoesData, "listaColecoes"); // Nova linha para as coleções
 
-  // ELEMENTOS DO MODAL
+  // Modal
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
   const modalTitulo = document.getElementById("modalTitulo");
@@ -135,24 +125,21 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.querySelector(".close");
 
   function openModal(item) {
-    if (!modal) return;
-    if (modalImg) modalImg.src = item.src || "";
-    if (modalTitulo) modalTitulo.textContent = item.titulo || "Sem título";
-    if (modalAno) modalAno.textContent = item.ano || "-";
-    if (modalAutor) modalAutor.textContent = item.autor || "-";
-    if (modalNumero) modalNumero.textContent = item.numero || "-";
-    if (modalComp) modalComp.textContent = item.comp || "-";
-    if (modalLarg) modalLarg.textContent = item.larg || "-";
-    if (modalEsp) modalEsp.textContent = item.esp || "-";
-    if (modalDesc) modalDesc.textContent = item.desc || "";
+    modalImg.src = item.src;
+    modalTitulo.textContent = item.titulo;
+    modalAno.textContent = item.ano;
+    modalAutor.textContent = item.autor;
+    modalNumero.textContent = item.numero || "---";
+    modalComp.textContent = item.comp || "---";
+    modalLarg.textContent = item.larg || "---";
+    modalEsp.textContent = item.esp || "---";
+    modalDesc.textContent = item.desc;
     modal.classList.remove("hidden");
   }
 
-  if (closeModal) {
-    closeModal.addEventListener("click", () => {
-      modal.classList.add("hidden");
-    });
-  }
+  closeModal.addEventListener("click", () => {
+    modal.classList.add("hidden");
+  });
 
   window.addEventListener("click", (e) => {
     if (e.target === modal) modal.classList.add("hidden");
