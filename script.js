@@ -10,16 +10,15 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabContents = document.querySelectorAll(".tab-content");
 
 
-  // ==============================
-  // MENU TRABALHOS
-  // ==============================
+// ==============================
+// MENU TRABALHOS
+// ==============================
 
-  if (btnTrabalhos) {
-    btnTrabalhos.addEventListener("click", () => {
-      subBotoes.classList.toggle("hidden");
-    });
-  }
-
+if (btnTrabalhos && subBotoes) {
+  btnTrabalhos.onclick = function () {
+    subBotoes.classList.toggle("hidden");
+  };
+}
 
   // ==============================
   // ENTRAR NAS CATEGORIAS
