@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quadrosData = [
     { 
       src: "quadro1.jpg", 
-      images: ["quadro.jpg"], // Se quiseres que a da capa também apareça dentro, tens de a colocar aqui
+      images: ["quadro2.jpg"], // Se quiseres que a da capa também apareça dentro, tens de a colocar aqui
       titulo: "Lar Sobre Rodas", 
       ano: "2019", 
       autor: "Diogo Fernandes", 
