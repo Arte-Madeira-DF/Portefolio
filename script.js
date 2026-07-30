@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const quadrosData = [
     { 
       src: "quadro1.jpg", 
-      images: ["quadro2.jpg"],
+      images: ["quadro1.jpg"],
       titulo: "Lar Sobre Rodas", 
       ano: "2019", 
       autor: "Diogo Fernandes", 
@@ -67,16 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
       numero: "31", 
       comp: "25.5cm", larg: "37cm", esp: "3cm", 
       desc: "Placa em madeira com gravação manual da antiga Estação de Serpins..." 
-    },
-    { 
-      src: "quadro32.jpeg", 
-      images: ["quadro32.jpeg"], 
-      titulo: "Sabor Tradicional", 
-      ano: "2026", 
-      autor: "Diogo Fernandes", 
-      numero: "32", 
-      comp: "8cm", larg: "12.5cm", esp: "1.5cm", 
-      desc: "Placa em madeira com gravação manual de um croissant..." 
     }
   ];
 
@@ -88,19 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "KMT", 
       ano: "2025", 
       autor: "Diogo Fernandes", 
-      numero: "---",
-      comp: "---", larg: "---", esp: "---",
-      desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca KMT." 
-    },
-    { 
-      src: "iamn3.jpeg", 
-      images: ["iamn3.jpeg"], 
-      titulo: "Renault", 
-      ano: "2025", 
-      autor: "Diogo Fernandes", 
-      numero: "---",
-      comp: "---", larg: "---", esp: "---",
-      desc: "Na imagem ao lado está fotografado uns exemplares de Ímans com o logo da marca Renault." 
+      desc: "Ímans com o logo da marca KMT." 
     }
   ];
 
@@ -112,9 +90,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Coleção N2", 
       ano: "2025", 
       autor: "Diogo Fernandes", 
-      isColecao: true,
-      tipoPeca: "Íman",
-      itens: "Vila Nova do Ceira, Góis, Poiares, Lousã, Santa Comba Dão, ..." 
+      desc: "Tipo de Peça: Íman\nMarcos: Vila Nova do Ceira, Góis, Poiares, Lousã, ..." 
     },
     { 
       src: "colecao2.jpg", 
@@ -122,9 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Coleção de Bandas Portuguesas", 
       ano: "2026", 
       autor: "Diogo Fernandes", 
-      isColecao: true,
-      tipoPeca: "Quadro",
-      itens: "Xutos & Pontapés, Taxi, UHF, GNR, Quinta do Bill, ..." 
+      desc: "Tipo de Peça: Quadro\nBandas: Xutos & Pontapés, Taxi, UHF, GNR, ..." 
     }
   ];
 
@@ -151,19 +125,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalTitulo = document.getElementById("modalTitulo");
   const modalAno = document.getElementById("modalAno");
   const modalAutor = document.getElementById("modalAutor");
-  
-  // Elementos de Trabalho Normal
-  const infoTrabalho = document.getElementById("infoTrabalho");
   const modalNumero = document.getElementById("modalNumero");
   const modalComp = document.getElementById("modalComp");
   const modalLarg = document.getElementById("modalLarg");
   const modalEsp = document.getElementById("modalEsp");
   const modalDesc = document.getElementById("modalDesc");
-
-  // Elementos de Coleção
-  const infoColecao = document.getElementById("infoColecao");
-  const colTipo = document.getElementById("colTipo");
-  const colItens = document.getElementById("colItens");
+  
+  const pNumero = document.getElementById("pNumero");
+  const boxMedidas = document.getElementById("boxMedidas");
   
   const prevBtn = document.getElementById("prevImg");
   const nextBtn = document.getElementById("nextImg");
@@ -181,6 +150,25 @@ document.addEventListener("DOMContentLoaded", () => {
     modalAno.textContent = item.ano;
     modalAutor.textContent = item.autor;
 
+    // Ocultar campos se não existirem
+    if (item.numero) {
+      pNumero.classList.remove("hidden");
+      modalNumero.textContent = item.numero;
+    } else {
+      pNumero.classList.add("hidden");
+    }
+
+    if (item.comp || item.larg || item.esp) {
+      boxMedidas.classList.remove("hidden");
+      modalComp.textContent = item.comp || "---";
+      modalLarg.textContent = item.larg || "---";
+      modalEsp.textContent = item.esp || "---";
+    } else {
+      boxMedidas.classList.add("hidden");
+    }
+
+    modalDesc.innerText = item.desc || "";
+
     // Miniaturas
     thumbContainer.innerHTML = "";
     if (currentImages.length > 1) {
@@ -189,10 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thumb.src = imgSrc;
         thumb.classList.add("thumb");
         if (index === 0) thumb.classList.add("active");
-        thumb.onclick = () => {
-          currentIndex = index;
-          updateModalImage();
-        };
+        thumb.onclick = () => { currentIndex = index; updateModalImage(); };
         thumbContainer.appendChild(thumb);
       });
       prevBtn.classList.remove("hidden");
@@ -202,52 +187,18 @@ document.addEventListener("DOMContentLoaded", () => {
       nextBtn.classList.add("hidden");
     }
 
-    // ALTERNAR ENTRE TRABALHO E COLEÇÃO
-    if (item.isColecao) {
-      infoTrabalho.classList.add("hidden");
-      infoColecao.classList.remove("hidden");
-      
-      colTipo.textContent = item.tipoPeca;
-      colItens.textContent = item.itens;
-    } else {
-      infoColecao.classList.add("hidden");
-      infoTrabalho.classList.remove("hidden");
-      
-      modalNumero.textContent = item.numero || "---";
-      modalComp.textContent = item.comp || "---";
-      modalLarg.textContent = item.larg || "---";
-      modalEsp.textContent = item.esp || "---";
-      modalDesc.textContent = item.desc || "";
-    }
-
     modal.classList.remove("hidden");
   }
 
   function updateModalImage() {
     modalImg.src = currentImages[currentIndex];
     const thumbs = document.querySelectorAll(".thumb");
-    thumbs.forEach((t, i) => {
-      t.classList.toggle("active", i === currentIndex);
-    });
+    thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
   }
 
-  prevBtn.onclick = (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
-    updateModalImage();
-  };
+  prevBtn.onclick = (e) => { e.stopPropagation(); currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateModalImage(); };
+  nextBtn.onclick = (e) => { e.stopPropagation(); currentIndex = (currentIndex + 1) % currentImages.length; updateModalImage(); };
 
-  nextBtn.onclick = (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % currentImages.length;
-    updateModalImage();
-  };
-
-  document.querySelector(".close").addEventListener("click", () => {
-    modal.classList.add("hidden");
-  });
-
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.add("hidden");
-  });
+  document.querySelector(".close").addEventListener("click", () => modal.classList.add("hidden"));
+  window.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
 });
