@@ -60,29 +60,45 @@
   </div>
 </section>
 
-<!-- MODAL COM TAMANHO FIXO -->
+<!-- MODAL COM GALERIA -->
 <div id="modal" class="modal hidden">
   <div class="modal-box">
     <span class="close">✕</span>
     <div class="modal-flex">
       <div class="modal-col-img">
-        <img id="modalImg" src="" alt="">
+        <div class="main-img-container">
+          <button id="prevImg" class="nav-btn">❮</button>
+          <img id="modalImg" src="" alt="">
+          <button id="nextImg" class="nav-btn">❯</button>
+        </div>
+        <div id="thumbContainer" class="thumb-container"></div>
       </div>
       <div class="modal-col-info">
         <p><strong>Nome:</strong> <span id="modalTitulo"></span></p>
         <p><strong>Ano:</strong> <span id="modalAno"></span></p>
         <p><strong>Autor:</strong> <span id="modalAutor"></span></p>
-        <p><strong>Número:</strong> <span id="modalNumero"></span></p>
-        <div class="medidas-box">
-          <p><strong>Medidas:</strong></p>
-          <ul>
-            <li><strong>Comp:</strong> <span id="modalComp"></span></li>
-            <li><strong>Larg:</strong> <span id="modalLarg"></span></li>
-            <li><strong>Esp:</strong> <span id="modalEsp"></span></li>
-          </ul>
+        
+        <!-- SECÇÃO TRABALHOS (QUADROS/ÍMANES) -->
+        <div id="infoTrabalho">
+          <p><strong>Número:</strong> <span id="modalNumero"></span></p>
+          <div class="medidas-box">
+            <p><strong>Medidas:</strong></p>
+            <ul>
+              <li><strong>Comp:</strong> <span id="modalComp"></span></li>
+              <li><strong>Larg:</strong> <span id="modalLarg"></span></li>
+              <li><strong>Esp:</strong> <span id="modalEsp"></span></li>
+            </ul>
+          </div>
+          <p><strong>Descrição:</strong></p>
+          <p id="modalDesc" class="descricao-texto"></p>
         </div>
-        <p><strong>Descrição:</strong></p>
-        <p id="modalDesc" class="descricao-texto"></p>
+
+        <!-- SECÇÃO COLEÇÕES -->
+        <div id="infoColecao" class="hidden">
+          <p><strong>Tipo de Peça:</strong> <span id="colTipo"></span></p>
+          <p><strong>Itens Disponíveis:</strong></p>
+          <p id="colItens" class="descricao-texto"></p>
+        </div>
       </div>
     </div>
   </div>
