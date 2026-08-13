@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
       desc: "Tipo de Peça: Íman\nMarcos: Vila Nova do Ceira, Góis, Poiares, Lousã, ..." 
     },
     { 
-      src: "colecao2.jpg", 
+      src: "Coleção 2.jpg", 
       titulo: "Coleção de Bandas Portuguesas", 
       ano: "2026", 
       autor: "Diogo Fernandes", 
