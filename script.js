@@ -105,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
       titulo: "Coleção de Bandas Portuguesas", 
       ano: "2026", 
       autor: "Diogo Fernandes", 
-      desc: "Tipo de Peça: Quadro\nBandas: Xutos & Pontapés, Taxi, UHF, GNR, ..." 
+      desc: "Tipo de Peça: Quadro\nBandas: Xutos & Pontapés, Taxi, UHF" 
     }
   ];
 
