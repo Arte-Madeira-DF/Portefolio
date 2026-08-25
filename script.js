@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+ddocument.addEventListener("DOMContentLoaded", () => {
   const btnTrabalhos = document.getElementById("btnTrabalhos");
   const subBotoes = document.getElementById("subBotoes");
   const sectionCapa = document.getElementById("capa");
@@ -6,6 +6,44 @@ document.addEventListener("DOMContentLoaded", () => {
   const btnVoltarCapa = document.getElementById("voltarCapa");
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
+
+  // Colagem dinâmica: quatro peças visíveis e troca gradual de uma posição de cada vez
+  const colagemPecas = [
+    { src: "quadro1.jpg", alt: "Lar Sobre Rodas", label: "Memória" },
+    { src: "quadro12.jpg", alt: "Horizonte de Verão", label: "Paisagem" },
+    { src: "quadro 31.jpeg", alt: "Memórias da Estação de Serpins", label: "História" },
+    { src: "quadro23.jpg", alt: "Essência Urbana", label: "Traço" },
+    { src: "quadro5.jpg", alt: "Vila Nova do Ceira Terra Fixe", label: "Lugar" },
+    { src: "quadro9.jpg", alt: "Segredos do Fundo do Mar", label: "Natureza" },
+    { src: "quadro17.jpg", alt: "Paixão Benfiquista", label: "Identidade" },
+    { src: "quadro28.jpg", alt: "O Primeiro Vapor em Portugal", label: "Memória" },
+    { src: "imane1.jpeg", alt: "Coleção N2", label: "Coleção" },
+    { src: "Coleção 2.jpg", alt: "Coleção de Bandas Portuguesas", label: "Música" }
+  ];
+  const colagemElementos = [...document.querySelectorAll(".colagem-peca")];
+  const colagemLegenda = document.getElementById("colagemLegenda");
+  let proximaPeca = colagemElementos.length;
+
+  function iniciarColagemDinamica() {
+    if (!colagemElementos.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    window.setInterval(() => {
+      const posicao = (proximaPeca - colagemElementos.length) % colagemElementos.length;
+      const elemento = colagemElementos[posicao];
+      const imagem = elemento.querySelector("img");
+      const legenda = elemento.querySelector("figcaption");
+      const peca = colagemPecas[proximaPeca % colagemPecas.length];
+      elemento.classList.add("trocando");
+      window.setTimeout(() => {
+        imagem.src = peca.src;
+        imagem.alt = peca.alt;
+        legenda.textContent = peca.label;
+        elemento.classList.remove("trocando");
+        if (colagemLegenda) colagemLegenda.textContent = `Em destaque · ${peca.alt}`;
+      }, 550);
+      proximaPeca += 1;
+    }, 4500);
+  }
+  iniciarColagemDinamica();
 
   // Abrir diretamente a galeria ao clicar em "Ver trabalhos"
   btnTrabalhos.addEventListener("click", () => {
