@@ -10,9 +10,13 @@ button:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
 
 #capa { min-height:100svh; display:grid; place-items:center; padding:32px 20px; position:relative; overflow:hidden; background:radial-gradient(circle at 80% 20%,rgba(201,152,75,.15),transparent 35%),linear-gradient(135deg,#15120f,#090909); }
 #capa::before { content:""; position:absolute; inset:0; opacity:.12; background-image:linear-gradient(45deg,transparent 45%,#c9984b 46%,transparent 48%); background-size:44px 44px; pointer-events:none; }
-.capa-conteudo { position:relative; width:min(720px,100%); padding:clamp(32px,7vw,76px); border:1px solid rgba(201,152,75,.35); background:rgba(17,16,14,.82); box-shadow:0 22px 80px #000; text-align:center; }
-.logo-principal { display:block; width:min(190px,52vw); max-height:150px; margin:0 auto 28px; object-fit:contain; filter:drop-shadow(0 8px 16px #000); }
-.logo-header { width:62px; height:62px; object-fit:contain; flex:0 0 62px; }
+#capa::after { content:""; position:absolute; right:-8%; bottom:-16%; width:min(620px,75vw); aspect-ratio:1; background:url("logo.svg") center/contain no-repeat; opacity:.075; filter:sepia(1) saturate(.7); transform:rotate(-9deg); pointer-events:none; }
+.capa-conteudo { position:relative; z-index:1; width:min(720px,100%); padding:clamp(32px,7vw,76px); border:1px solid rgba(201,152,75,.45); background:rgba(17,16,14,.88); box-shadow:0 22px 80px #000, inset 0 0 0 6px rgba(201,152,75,.035); text-align:center; }
+.capa-conteudo::before,.capa-conteudo::after { content:"✦"; position:absolute; color:var(--accent); opacity:.7; font-size:1.1rem; }
+.capa-conteudo::before { top:14px; left:18px; }
+.capa-conteudo::after { right:18px; bottom:14px; }
+.logo-principal { display:block; width:min(120px,30vw); max-height:92px; margin:0 auto 18px; object-fit:contain; filter:drop-shadow(0 6px 12px #000); }
+.logo-header { width:48px; height:48px; object-fit:contain; flex:0 0 48px; padding:5px; border:1px solid rgba(201,152,75,.35); }
 .marca-header { display:flex; align-items:center; gap:16px; }
 .eyebrow { color:var(--accent); font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; }
 .titulo-capa { margin:16px 0 18px; font-family:'Playfair Display',Georgia,serif; font-size:clamp(2.7rem,7vw,5.7rem); line-height:1.02; font-weight:700; }
@@ -45,10 +49,10 @@ button:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
 .section-heading h2 { margin:5px 0 8px; }
 .section-heading p:last-child { color:var(--muted); }
 .galeria { display:grid; grid-template-columns:repeat(auto-fill,minmax(190px,1fr)); align-items:start; gap:24px; }
-.obra-card { overflow:hidden; background:var(--panel); border:1px solid var(--line); cursor:pointer; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; }
+.obra-card { overflow:hidden; background:linear-gradient(145deg,#211b16,#171411); border:1px solid var(--line); cursor:pointer; transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease; box-shadow:inset 0 0 0 4px rgba(201,152,75,.025); }
 .obra-card:hover { transform:translateY(-5px); border-color:var(--accent); box-shadow:0 14px 30px #0008; }
 .obra-card img { display:block; width:100%; height:230px; object-fit:contain; background:#0b0b0a; }
-.obra-card-info { padding:13px 15px 15px; }
+.obra-card-info { padding:13px 15px 15px; border-top:1px solid rgba(201,152,75,.18); }
 .obra-card h3 { font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; line-height:1.25; }
 .obra-card p { margin-top:3px; color:var(--muted); font-size:.85rem; }
 
@@ -74,7 +78,7 @@ button:focus-visible { outline:3px solid var(--accent); outline-offset:4px; }
 .thumb { width:58px; height:58px; object-fit:cover; opacity:.55; border:1px solid var(--line); cursor:pointer; }
 .thumb.active,.thumb:hover { opacity:1; border-color:var(--accent); }
 .contador { margin-top:18px; color:var(--accent); font-size:.85rem; }
-.rodape { padding:28px 20px; color:var(--muted); text-align:center; border-top:1px solid var(--line); font-size:.85rem; }
+.rodape { padding:28px 20px; color:var(--muted); text-align:center; border-top:1px solid var(--line); font-size:.85rem; background:linear-gradient(90deg,#11100e,#1b1510,#11100e); }
 .rodape span { color:var(--accent); margin:0 8px; }
 
 @media (max-width:700px) {
