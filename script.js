@@ -7,43 +7,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  // Colagem dinâmica: quatro peças visíveis e troca gradual de uma posição de cada vez
-  const colagemPecas = [
-    { src: "quadro1.jpg", alt: "Lar Sobre Rodas", label: "Memória" },
-    { src: "quadro12.jpg", alt: "Horizonte de Verão", label: "Paisagem" },
-    { src: "quadro 31.jpeg", alt: "Memórias da Estação de Serpins", label: "História" },
-    { src: "quadro23.jpg", alt: "Essência Urbana", label: "Traço" },
-    { src: "quadro5.jpg", alt: "Vila Nova do Ceira Terra Fixe", label: "Lugar" },
-    { src: "quadro9.jpg", alt: "Segredos do Fundo do Mar", label: "Natureza" },
-    { src: "quadro17.jpg", alt: "Paixão Benfiquista", label: "Identidade" },
-    { src: "quadro28.jpg", alt: "O Primeiro Vapor em Portugal", label: "Memória" },
-    { src: "imane1.jpeg", alt: "Coleção N2", label: "Coleção" },
-    { src: "Coleção 2.jpg", alt: "Coleção de Bandas Portuguesas", label: "Música" }
+  // Fundo dinâmico: uma obra grande em destaque, trocada suavemente
+  const fundoPecas = [
+    { src: "quadro1.jpg", alt: "Lar Sobre Rodas" },
+    { src: "quadro12.jpg", alt: "Horizonte de Verão" },
+    { src: "quadro 31.jpeg", alt: "Memórias da Estação de Serpins" },
+    { src: "quadro23.jpg", alt: "Essência Urbana" },
+    { src: "quadro5.jpg", alt: "Vila Nova do Ceira Terra Fixe" },
+    { src: "quadro9.jpg", alt: "Segredos do Fundo do Mar" },
+    { src: "quadro17.jpg", alt: "Paixão Benfiquista" },
+    { src: "quadro28.jpg", alt: "O Primeiro Vapor em Portugal" },
+    { src: "imane1.jpeg", alt: "Coleção N2" },
+    { src: "Coleção 2.jpg", alt: "Coleção de Bandas Portuguesas" }
   ];
-  const colagemElementos = [...document.querySelectorAll(".colagem-peca")];
-  const colagemLegenda = document.getElementById("colagemLegenda");
-  let proximaPeca = colagemElementos.length;
+  const capaFundoImg = document.getElementById("capaFundoImg");
+  const capaLegenda = document.getElementById("capaLegenda");
+  let fundoIndex = 0;
 
-  function iniciarColagemDinamica() {
-    if (!colagemElementos.length) return;
+  function iniciarFundoDinamico() {
+    if (!capaFundoImg || fundoPecas.length < 2) return;
+    fundoPecas.slice(1).forEach(peca => { const imagem = new Image(); imagem.src = peca.src; });
     window.setInterval(() => {
-      const posicao = (proximaPeca - colagemElementos.length) % colagemElementos.length;
-      const elemento = colagemElementos[posicao];
-      const imagem = elemento.querySelector("img");
-      const legenda = elemento.querySelector("figcaption");
-      const peca = colagemPecas[proximaPeca % colagemPecas.length];
-      elemento.classList.add("trocando");
+      fundoIndex = (fundoIndex + 1) % fundoPecas.length;
+      const peca = fundoPecas[fundoIndex];
+      capaFundoImg.classList.add("trocando");
       window.setTimeout(() => {
-        imagem.src = peca.src;
-        imagem.alt = peca.alt;
-        legenda.textContent = peca.label;
-        elemento.classList.remove("trocando");
-        if (colagemLegenda) colagemLegenda.textContent = `Em destaque · ${peca.alt}`;
-      }, 550);
-      proximaPeca += 1;
-    }, 3500);
+        capaFundoImg.src = peca.src;
+        if (capaLegenda) capaLegenda.textContent = `Em destaque · ${peca.alt}`;
+        capaFundoImg.classList.remove("trocando");
+      }, 800);
+    }, 5000);
   }
-  iniciarColagemDinamica();
+  iniciarFundoDinamico();
 
   // Abrir diretamente a galeria ao clicar em "Ver trabalhos"
   btnTrabalhos.addEventListener("click", () => {
