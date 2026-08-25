@@ -1,4 +1,4 @@
-ddocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const btnTrabalhos = document.getElementById("btnTrabalhos");
   const subBotoes = document.getElementById("subBotoes");
   const sectionCapa = document.getElementById("capa");
@@ -25,7 +25,7 @@ ddocument.addEventListener("DOMContentLoaded", () => {
   let proximaPeca = colagemElementos.length;
 
   function iniciarColagemDinamica() {
-    if (!colagemElementos.length || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!colagemElementos.length) return;
     window.setInterval(() => {
       const posicao = (proximaPeca - colagemElementos.length) % colagemElementos.length;
       const elemento = colagemElementos[posicao];
@@ -41,7 +41,7 @@ ddocument.addEventListener("DOMContentLoaded", () => {
         if (colagemLegenda) colagemLegenda.textContent = `Em destaque · ${peca.alt}`;
       }, 550);
       proximaPeca += 1;
-    }, 4500);
+    }, 3500);
   }
   iniciarColagemDinamica();
 
