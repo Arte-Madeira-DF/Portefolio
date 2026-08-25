@@ -1,104 +1,92 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-PT">
 <head>
   <meta charset="UTF-8">
-  <title>Artes madeira DF</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <!-- ÍCONE NA ABA DO NAVEGADOR -->
-  <link rel="icon" href="Logo Pequeno.svg" type="image/svg">
-  
+  <meta name="description" content="Portefólio de pirografia e arte em madeira de Diogo Fernandes.">
+  <title>Arte em Madeira D.F. — Portefólio</title>
+  <link rel="icon" href="Logo Pequeno.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- CAPA -->
-<section id="capa">
-  <div class="capa-conteudo">
-    <h1 class="titulo-capa">Artes madeira DF</h1>
-    
-    <div class="capa-botoes">
-      <button id="btnTrabalhos">Trabalhos</button>
-    </div>
-    <p class="texto">
- Bem-vindo à Arte em Madeira D.F., o lugar onde a madeira ganha vida através da arte da pirografia. Aqui, unimos tradição e criatividade para criar peças artesanais únicas, gravadas com a precisão e a paixão que só o fogo pode proporcionar. Cada criação é uma expressão singular, cuidadosamente trabalhada para refletir a beleza natural da madeira e a originalidade de cada projeto. Seja para decorar o seu lar ou presentear alguém especial, na Arte em Madeira D.F. você encontrará peças que transmitem autenticidade, calor e um toque pessoal. Explore o nosso universo de arte em madeira e inspire-se com o que podemos criar para você. 
-</p>
-    <!-- SUB-BOTÕES -->
-    <div id="subBotoes" class="hidden">
-      <button data-target="quadros" class="btn-sub">Quadros</button>
-      <button data-target="imans" class="btn-sub">Ímanes</button>
-      <button data-target="colecoes" class="btn-sub">Coleções</button>
-    </div>
-  </div>
-</section>
-
-<!-- SITE (CONTEÚDO ESCONDIDO INICIALMENTE) -->
-<section id="site" class="hidden">
-  <button id="voltarCapa" class="voltar-menu">← Voltar para a Capa</button>
-  
-  <nav class="tabs">
-    <ul>
-      <li><button class="tab" data-tab="quadros">Quadros</button></li>
-      <li><button class="tab" data-tab="imans">Ímanes</button></li>
-      <li><button class="tab" data-tab="colecoes">Coleções</button></li>
-    </ul>
-  </nav>
-
-  <div id="quadros" class="tab-content">
-    <h2>Os Meus Quadros</h2>
-    <div class="galeria" id="listaQuadros"></div>
-  </div>
-
-  <div id="imans" class="tab-content">
-    <h2>Os Meus Ímanes</h2>
-    <div class="galeria" id="listaImans"></div>
-  </div>
-
-  <div id="colecoes" class="tab-content">
-    <h2>As Minhas Coleções</h2>
-    <div class="galeria" id="listaColecoes"></div>
-  </div>
-</section>
-
-<!-- MODAL COM GALERIA -->
-<div id="modal" class="modal hidden">
-  <div class="modal-box">
-    <span class="close">✕</span>
-    <div class="modal-flex">
-      <div class="modal-col-img">
-        <div class="main-img-container">
-          <button id="prevImg" class="nav-btn">❮</button>
-          <img id="modalImg" src="" alt="">
-          <button id="nextImg" class="nav-btn">❯</button>
+  <main>
+    <section id="capa" aria-labelledby="titulo-capa">
+      <div class="capa-conteudo">
+        <p class="eyebrow">PORTefólio de pirografia</p>
+        <h1 id="titulo-capa" class="titulo-capa">Arte em Madeira <span>D.F.</span></h1>
+        <p class="texto">Peças únicas gravadas à mão, onde a madeira, o fogo e a imaginação se encontram.</p>
+        <div class="capa-botoes">
+          <button id="btnTrabalhos" type="button" aria-expanded="false" aria-controls="subBotoes">Ver trabalhos <span aria-hidden="true">↓</span></button>
         </div>
-        <div id="thumbContainer" class="thumb-container"></div>
+        <div id="subBotoes" class="sub-botoes hidden" aria-label="Escolher categoria">
+          <button data-target="quadros" class="btn-sub" type="button">Quadros</button>
+          <button data-target="imans" class="btn-sub" type="button">Ímanes</button>
+          <button data-target="colecoes" class="btn-sub" type="button">Coleções</button>
+        </div>
       </div>
-      <div class="modal-col-info">
-        <p><strong>Nome:</strong> <span id="modalTitulo"></span></p>
-        <p><strong>Ano:</strong> <span id="modalAno"></span></p>
-        <p><strong>Autor:</strong> <span id="modalAutor"></span></p>
-        
-        <p id="pNumero"><strong>Número:</strong> <span id="modalNumero"></span></p>
-        
-        <div id="boxMedidas" class="medidas-box">
-          <p><strong>Medidas:</strong></p>
-          <ul>
-            <li><strong>Comp:</strong> <span id="modalComp"></span></li>
-            <li><strong>Larg:</strong> <span id="modalLarg"></span></li>
-            <li><strong>Esp:</strong> <span id="modalEsp"></span></li>
-          </ul>
-        </div>
+    </section>
 
-        <p><strong>Descrição:</strong></p>
-        <p id="modalDesc" class="descricao-texto"></p>
+    <section id="site" class="hidden" aria-label="Portefólio">
+      <header class="site-header">
+        <button id="voltarCapa" class="voltar-menu" type="button">← Capa</button>
+        <div>
+          <p class="eyebrow">Arte em Madeira D.F.</p>
+          <h2>Galeria de trabalhos</h2>
+        </div>
+      </header>
+      <nav class="tabs" aria-label="Categorias do portefólio">
+        <ul>
+          <li><button class="tab" data-tab="quadros" type="button">Quadros</button></li>
+          <li><button class="tab" data-tab="imans" type="button">Ímanes</button></li>
+          <li><button class="tab" data-tab="colecoes" type="button">Coleções</button></li>
+        </ul>
+      </nav>
+      <div id="quadros" class="tab-content">
+        <div class="section-heading"><p class="eyebrow">Peças gravadas à mão</p><h2>Os meus quadros</h2><p>Uma seleção de trabalhos desenvolvidos ao longo dos anos.</p></div>
+        <div class="galeria" id="listaQuadros"></div>
+      </div>
+      <div id="imans" class="tab-content">
+        <div class="section-heading"><p class="eyebrow">Pequenos formatos</p><h2>Os meus ímanes</h2><p>Objetos simples que levam a arte em madeira para o dia a dia.</p></div>
+        <div class="galeria" id="listaImans"></div>
+      </div>
+      <div id="colecoes" class="tab-content">
+        <div class="section-heading"><p class="eyebrow">Conjuntos e temas</p><h2>As minhas coleções</h2><p>Trabalhos reunidos por memória, lugar ou inspiração.</p></div>
+        <div class="galeria" id="listaColecoes"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+    <div class="modal-box">
+      <button class="close" type="button" aria-label="Fechar detalhe">×</button>
+      <div class="modal-flex">
+        <div class="modal-col-img">
+          <div class="main-img-container">
+            <button id="prevImg" class="nav-btn" type="button" aria-label="Imagem anterior">‹</button>
+            <img id="modalImg" src="" alt="">
+            <button id="nextImg" class="nav-btn" type="button" aria-label="Imagem seguinte">›</button>
+          </div>
+          <div id="thumbContainer" class="thumb-container" aria-label="Miniaturas"></div>
+        </div>
+        <div class="modal-col-info">
+          <p class="eyebrow">Detalhe da obra</p>
+          <h2 id="modalTitulo"></h2>
+          <p id="modalDesc" class="descricao-texto"></p>
+          <dl class="dados-obra">
+            <div><dt>Ano</dt><dd id="modalAno"></dd></div>
+            <div><dt>Autor</dt><dd id="modalAutor"></dd></div>
+            <div id="pNumero"><dt>Número</dt><dd id="modalNumero"></dd></div>
+          </dl>
+          <div id="boxMedidas" class="medidas-box">
+            <p class="eyebrow">Dimensões</p>
+            <ul><li><strong>Comp.</strong> <span id="modalComp"></span></li><li><strong>Larg.</strong> <span id="modalLarg"></span></li><li><strong>Esp.</strong> <span id="modalEsp"></span></li></ul>
+          </div>
+          <p class="contador" id="contadorImagem" aria-live="polite"></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
-
-<script src="script.js"></script>
-  <footer class="rodape">
-  Garanta o seu já! Encomende antes que seja tarde!
-</footer>
+  <footer class="rodape">Portefólio de Arte em Madeira D.F. <span>·</span> Pirografia artesanal</footer>
+  <script src="script.js"></script>
 </body>
 </html>
