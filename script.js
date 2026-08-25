@@ -1,4 +1,4 @@
-ocument.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   const btnTrabalhos = document.getElementById("btnTrabalhos");
   const subBotoes = document.getElementById("subBotoes");
   const sectionCapa = document.getElementById("capa");
@@ -7,9 +7,14 @@ ocument.addEventListener("DOMContentLoaded", () => {
   const tabs = document.querySelectorAll(".tab");
   const tabContents = document.querySelectorAll(".tab-content");
 
-  // Mostrar sub-botões ao clicar em Trabalhos
+  // Abrir diretamente a galeria ao clicar em "Ver trabalhos"
   btnTrabalhos.addEventListener("click", () => {
-    subBotoes.classList.toggle("hidden");
+    sectionCapa.classList.add("hidden");
+    sectionSite.classList.remove("hidden");
+    subBotoes.classList.add("hidden");
+    btnTrabalhos.setAttribute("aria-expanded", "true");
+    showTab("quadros");
+    sectionSite.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 
   // Entrar no site e mostrar a aba correspondente
