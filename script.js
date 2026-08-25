@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", () => {
+ocument.addEventListener("DOMContentLoaded", () => {
   const btnTrabalhos = document.getElementById("btnTrabalhos");
   const subBotoes = document.getElementById("subBotoes");
   const sectionCapa = document.getElementById("capa");
@@ -114,11 +114,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
     container.innerHTML = "";
     data.forEach(item => {
+      const card = document.createElement("article");
+      card.className = "obra-card";
+      card.tabIndex = 0;
+      card.setAttribute("role", "button");
+      card.setAttribute("aria-label", `Ver detalhes de ${item.titulo}`);
       const img = document.createElement("img");
       img.src = item.src;
       img.alt = item.titulo;
-      img.addEventListener("click", () => openModal(item));
-      container.appendChild(img);
+      img.loading = "lazy";
+      img.decoding = "async";
+      const info = document.createElement("div");
+      info.className = "obra-card-info";
+      const title = document.createElement("h3");
+      title.textContent = item.titulo;
+      const year = document.createElement("p");
+      year.textContent = item.ano ? `${item.ano} · Pirografia em madeira` : "Pirografia em madeira";
+      info.append(title, year);
+      card.append(img, info);
+      const open = () => openModal(item);
+      card.addEventListener("click", open);
+      card.addEventListener("keydown", event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); open(); } });
+      container.appendChild(card);
     });
   }
 
@@ -174,7 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
       boxMedidas.classList.add("hidden");
     }
 
-    modalDesc.innerText = item.desc || "";
+    modalDesc.textContent = item.desc || "";
+    modalImg.alt = item.titulo || "Imagem da obra";
+    modal.setAttribute("aria-label", `Detalhes da obra ${item.titulo}`);
 
     // Miniaturas
     thumbContainer.innerHTML = "";
@@ -195,17 +214,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     modal.classList.remove("hidden");
+    document.body.classList.add("modal-aberto");
+    document.querySelector(".close").focus();
   }
 
   function updateModalImage() {
     modalImg.src = currentImages[currentIndex];
     const thumbs = document.querySelectorAll(".thumb");
     thumbs.forEach((t, i) => t.classList.toggle("active", i === currentIndex));
+    const contador = document.getElementById("contadorImagem");
+    if (contador) contador.textContent = currentImages.length > 1 ? `${currentIndex + 1} de ${currentImages.length}` : "";
   }
 
   prevBtn.onclick = (e) => { e.stopPropagation(); currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateModalImage(); };
   nextBtn.onclick = (e) => { e.stopPropagation(); currentIndex = (currentIndex + 1) % currentImages.length; updateModalImage(); };
 
-  document.querySelector(".close").addEventListener("click", () => modal.classList.add("hidden"));
-  window.addEventListener("click", (e) => { if (e.target === modal) modal.classList.add("hidden"); });
+  const closeModal = () => { modal.classList.add("hidden"); document.body.classList.remove("modal-aberto"); };
+  document.querySelector(".close").addEventListener("click", closeModal);
+  window.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+  document.addEventListener("keydown", event => {
+    if (modal.classList.contains("hidden")) return;
+    if (event.key === "Escape") closeModal();
+    if (event.key === "ArrowLeft") prevBtn.click();
+    if (event.key === "ArrowRight") nextBtn.click();
+  });
 });
